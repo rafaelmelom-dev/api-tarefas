@@ -29,7 +29,7 @@ app.post('/tarefas', (req, res) => {
 
 app.put('/tarefas/:id', (req, res) => {
     const tarefas = new Tarefas();
-    const tarefa = tarefas.update({id: req.params.id, ...req.body});
+    const tarefa = tarefas.update({...req.body, id: req.params.id});
     tarefas.close();
 
     if (tarefa) {
